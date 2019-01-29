@@ -26,6 +26,7 @@ BEGIN_MESSAGE_MAP(CCommandDemoView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
+	ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // CCommandDemoView construction/destruction
@@ -102,3 +103,19 @@ CCommandDemoDoc* CCommandDemoView::GetDocument() const // non-debug version is i
 
 
 // CCommandDemoView message handlers
+
+
+void CCommandDemoView::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	CMenu *pMainMenu = AfxGetMainWnd()->GetMenu();
+	CMenu *pSubMenu = pMainMenu->GetSubMenu(4);
+
+	CPoint ptMenu = point;
+	ClientToScreen(&ptMenu);
+
+	pSubMenu->TrackPopupMenu(TPM_RIGHTBUTTON | TPM_LEFTALIGN,
+		ptMenu.x, ptMenu.y,
+		this);
+
+	CView::OnRButtonDown(nFlags, point);
+}

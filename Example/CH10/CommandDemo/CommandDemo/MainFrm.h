@@ -47,6 +47,7 @@ public:
 	afx_msg void OnUpdateMenuStop(CCmdUI *pCmdUI);
 	afx_msg void OnMenuPause();
 	afx_msg void OnUpdateMenuPause(CCmdUI *pCmdUI);
+	afx_msg void OnSubmenuSub1();
 };
 
 

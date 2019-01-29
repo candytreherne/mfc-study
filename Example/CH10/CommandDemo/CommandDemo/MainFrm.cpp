@@ -23,6 +23,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_MENU_STOP, &CMainFrame::OnUpdateMenuStop)
 	ON_COMMAND(ID_MENU_PAUSE, &CMainFrame::OnMenuPause)
 	ON_UPDATE_COMMAND_UI(ID_MENU_PAUSE, &CMainFrame::OnUpdateMenuPause)
+	ON_COMMAND(ID_SUBMENU_SUB1, &CMainFrame::OnSubmenuSub1)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -151,4 +152,10 @@ void CMainFrame::OnUpdateMenuPause(CCmdUI *pCmdUI)
 	else
 		pCmdUI->SetCheck(FALSE);
 
+}
+
+
+void CMainFrame::OnSubmenuSub1()
+{
+	AfxMessageBox(TEXT("서브 메뉴를 선택하였습니다."));
 }
