@@ -115,7 +115,7 @@ void CCommandDemoView::OnRButtonDown(UINT nFlags, CPoint point)
 
 	pSubMenu->TrackPopupMenu(TPM_RIGHTBUTTON | TPM_LEFTALIGN,
 		ptMenu.x, ptMenu.y,
-		this);
+		AfxGetMainWnd());
 
 	CView::OnRButtonDown(nFlags, point);
 }
