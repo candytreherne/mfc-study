@@ -42,4 +42,7 @@ public:
 	afx_msg void OnBnClickedButtonFindExact();
 	CString m_strSelected;
 	afx_msg void OnLbnSelchangeList1();
+	CComboBox m_Combo_Address;
+	CString m_strAddress;
+	afx_msg void OnBnClickedButtonAddAddress();
 };

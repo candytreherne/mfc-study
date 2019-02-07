@@ -53,6 +53,7 @@ CListComboDemoDlg::CListComboDemoDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_LISTCOMBODEMO_DIALOG, pParent)
 	, m_strInput(_T(""))
 	, m_strSelected(_T(""))
+	, m_strAddress(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -63,6 +64,8 @@ void CListComboDemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST1, m_List);
 	DDX_Text(pDX, IDC_EDIT_INPUT, m_strInput);
 	DDX_Text(pDX, IDC_STATIC_SELECTED_STRING, m_strSelected);
+	DDX_Control(pDX, IDC_COMBO_ADDRESS, m_Combo_Address);
+	DDX_CBString(pDX, IDC_COMBO_ADDRESS, m_strAddress);
 }
 
 BEGIN_MESSAGE_MAP(CListComboDemoDlg, CDialogEx)
@@ -76,6 +79,7 @@ BEGIN_MESSAGE_MAP(CListComboDemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_FIND, &CListComboDemoDlg::OnBnClickedButtonFind)
 	ON_BN_CLICKED(IDC_BUTTON_FIND_EXACT, &CListComboDemoDlg::OnBnClickedButtonFindExact)
 	ON_LBN_SELCHANGE(IDC_LIST1, &CListComboDemoDlg::OnLbnSelchangeList1)
+	ON_BN_CLICKED(IDC_BUTTON_ADD_ADDRESS, &CListComboDemoDlg::OnBnClickedButtonAddAddress)
 END_MESSAGE_MAP()
 
 
@@ -111,6 +115,14 @@ BOOL CListComboDemoDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
+	m_Combo_Address.AddString(TEXT("서울"));
+	m_Combo_Address.AddString(TEXT("인천"));
+	m_Combo_Address.AddString(TEXT("대전"));
+	m_Combo_Address.AddString(TEXT("대구"));
+	m_Combo_Address.AddString(TEXT("광주"));
+	m_Combo_Address.AddString(TEXT("울산"));
+	m_Combo_Address.AddString(TEXT("부산"));
+
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -261,4 +273,16 @@ void CListComboDemoDlg::OnLbnSelchangeList1()
 		m_List.GetText(index, m_strSelected);
 		UpdateData(FALSE);
 	}
+}
+
+
+void CListComboDemoDlg::OnBnClickedButtonAddAddress()
+{
+	UpdateData();
+
+	m_Combo_Address.AddString(m_strAddress);
+	m_List.AddString(m_strAddress);
+
+	m_Combo_Address.SetEditSel(0, -1);
+	m_Combo_Address.Clear();
 }

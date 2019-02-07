@@ -15,9 +15,10 @@
 #define IDC_BUTTON_DEL_ALL              1005
 #define IDC_BUTTON_FIND                 1006
 #define IDC_BUTTON_FIND_EXACT           1007
-#define IDC_STATIC_SELECTED             1008
 #define IDC_STATIC_SELECTED_STRING      1008
 #define IDC_STATIC_SELECTED_INDEX       1009
+#define IDC_COMBO_ADDRESS               1010
+#define IDC_BUTTON_ADD_ADDRESS          1011
 
 // Next default values for new objects
 // 
@@ -25,7 +26,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1010
+#define _APS_NEXT_CONTROL_VALUE         1012
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
